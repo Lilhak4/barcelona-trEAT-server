@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({
   credentials: true,
-  origin: [process.env.MONGODB_URI]
+  origin: [process.env.CLIENT_URL]
 }));
 
 app.use(session({
