@@ -10,6 +10,7 @@ const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
 
 const auth = require('./routes/auth');
+const searchResults = require('./routes/search-results');
 
 const app = express();
 mongoose.Promise = Promise;
@@ -42,6 +43,7 @@ app.use(session({
 }));
 
 app.use('/auth', auth);
+app.use('/search-results', searchResults);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
