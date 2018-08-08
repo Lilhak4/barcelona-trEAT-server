@@ -8,8 +8,8 @@ router.get('/', (req, res, next) => {
   const apiKey = 'OBRBfzwmpMpDpDNpx1WsUYY9NL5KmaPfpUImpEKrkuYPuh2eeDZGWFvSqUeANb_U9Y9uPAANJtxKm7rYze8AQkpf2l4f7L-awFlq5GarpXkpoWb669rXYtoU499hW3Yx';
 
   const searchRequest = {
-    term: req.query.query,
-    location: 'barcelona'
+    term: req.query.dessert,
+    location: req.query.location
   };
 
   const client = yelp.client(apiKey);
