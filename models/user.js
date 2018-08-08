@@ -12,10 +12,12 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  favorites: {
-    type: String,
-    required: false
-  }
+  favorites: [
+    {
+      type: String,
+      required: false
+    }
+  ]
 });
 
 const User = mongoose.model('User', userSchema);

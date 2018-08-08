@@ -11,6 +11,7 @@ const cors = require('cors');
 
 const auth = require('./routes/auth');
 const profile = require('./routes/profile');
+const search = require('./routes/search-results');
 
 const app = express();
 mongoose.Promise = Promise;
@@ -44,6 +45,7 @@ app.use(session({
 
 app.use('/auth', auth);
 app.use('/profile', profile);
+app.use('/search-results', search);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
