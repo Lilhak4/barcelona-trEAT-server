@@ -83,9 +83,10 @@ router.post('/logout', (req, res) => {
 
 router.post('/addFavorite', (req, res, next) => {
   const restaurantName = req.body.name;
-  User.findByIdAndUpdate(req.session.currentUser._id, { $push: { favorites: restaurantName } })
-    .then(() => {
-      res.status(200).json({ code: 'user_updated' });
+  User.findByIdAndUpdate(req.session.currentUser._id, { $push: { favorites: restaurantName } }, { new: true })
+    .then((result) => {
+      req.session.currentUser = result;
+      res.status(200).json(result);
     })
     .catch(next);
 });
